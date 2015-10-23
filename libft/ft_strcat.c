@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 18:33:14 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/23 21:14:54 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/23 19:06:17 by ocota             #+#    #+#             */
+/*   Updated: 2015/10/23 19:10:23 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t n)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	size_t i;
+	int i;
+	int j;
 
 	i = 0;
-	while (i < n)
-	{
-		dst[i] = src[i];
+	j = 0;
+	while (s1[i])
 		i++;
+	while (s2[j])
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
 	}
-	return (dst);
+	return (s1);
 }

@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/22 20:37:44 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/23 19:04:10 by ocota            ###   ########.fr       */
+/*   Updated: 2015/10/23 22:18:19 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,20 @@ int		main(void)
 		printf("strlen");
 	if (strcmp(strdup("zama"),ft_strdup("zama")))
 		printf("strdup");
-	char s1[40]="zamadepire";
-	char s2[40]="SLAP";
-	printf("%s",ft_strncpy(s1, s2, 4));
 
+	// #FOR STRCMP
+	char s1[40]="PULAS";
+	char s2[40]="PULASLAPZAMA";
+	printf("%d\n",ft_strcmp(s1, s2));
+	char p1[40] = "PULAS";
+	char p2[40] = "PULASLAPZAMA";
+	printf("%d",strcmp(p1, p2));
+
+	// #FOR STRCHR
+	
+	//char s1[40] = "zamadepiare";
+	//printf("%s",ft_strrchr(s1,'a'));
+	//printf("%s", strrchr(s1, 'a'));
+	
 	return (0);
 }
