@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/22 20:37:44 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/23 15:00:25 by ocota            ###   ########.fr       */
+/*   Updated: 2015/10/23 19:04:10 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,13 @@ int		main(void)
 		printf("tolower");
 	if (!(atoi("1203A") == ft_atoi("1203A") && atoi(" A123") == ft_atoi(" A123") && atoi("  +126B") == ft_atoi("  +126B")))
 		printf("atoi");
+	if (!(strlen("zama") == ft_strlen("zama") && strlen("") == ft_strlen("")))
+		printf("strlen");
+	if (strcmp(strdup("zama"),ft_strdup("zama")))
+		printf("strdup");
+	char s1[40]="zamadepire";
+	char s2[40]="SLAP";
+	printf("%s",ft_strncpy(s1, s2, 4));
+
 	return (0);
 }

@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 14:41:07 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/23 17:38:11 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/23 18:27:25 by ocota             #+#    #+#             */
+/*   Updated: 2015/10/23 18:31:00 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	long result;
-	int res;
-	int sign;
 	int i;
-	
+
 	i = 0;
-	result = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
-		i++;
-	if (str[i] == '-')
+	while(src[i])
 	{
-		sign = -1;
+		dst[i] = src[i];
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i])
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			result = result * 10 + (str[i] - 48);
-			i++;
-		}
-		else
-			return (result);
-	res = result * sign;
-	return (res);
+	dst[i] = '\0';
+	return (dst);
 }
