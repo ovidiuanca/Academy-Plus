@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 21:58:14 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/25 02:11:13 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/25 01:58:57 by ocota             #+#    #+#             */
+/*   Updated: 2015/10/25 02:21:15 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int i;
+	size_t			i;
+	unsigned char	*c_s1;
+	unsigned char	*c_s2;
 
+	c_s1 = (unsigned char*)s1;
+	c_s2 = (unsigned char*)s2;
 	i = 0;
-	while (s1[i] || s2[i])
+	while (i < n)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if (c_s1[i] != c_s2[i])
+			return (c_s1[i] - c_s2[i]);
 		i++;
 	}
-	if (s1[i] != s2[i])
-		return (s1[i] - s2[i]);
-	else
-		return (0);
+	return (0);
 }

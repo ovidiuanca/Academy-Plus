@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 21:58:14 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/25 02:11:13 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/24 23:13:45 by ocota             #+#    #+#             */
+/*   Updated: 2015/10/24 23:35:34 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+void	ft_bzero(void *s, size_t n)
 {
-	int i;
-
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	if (s1[i] != s2[i])
-		return (s1[i] - s2[i]);
-	else
-		return (0);
+	ft_memset(s, 0, n);
 }

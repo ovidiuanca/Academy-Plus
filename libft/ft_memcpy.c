@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 21:58:14 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/25 02:11:13 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/24 23:36:47 by ocota             #+#    #+#             */
+/*   Updated: 2015/10/24 23:55:42 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int i;
+	size_t			i;
+	unsigned char	*c_dst;
+	char			*c_src;
 
+	c_src = ft_strdup(src);
+	c_dst = dst;
 	i = 0;
-	while (s1[i] || s2[i])
+	while (i < n)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		c_dst[i] = c_src[i];
 		i++;
 	}
-	if (s1[i] != s2[i])
-		return (s1[i] - s2[i]);
-	else
-		return (0);
+	return (dst);
 }

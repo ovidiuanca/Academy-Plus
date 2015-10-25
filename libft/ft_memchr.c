@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 21:58:14 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/25 02:11:13 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/25 01:15:40 by ocota             #+#    #+#             */
+/*   Updated: 2015/10/25 01:58:35 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int i;
+	unsigned char	*copy;
+	size_t			i;
 
 	i = 0;
-	while (s1[i] || s2[i])
+	copy = (unsigned char*)s;
+	while (i < n)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if (copy[i] == c)
+			return (copy + i);
 		i++;
 	}
-	if (s1[i] != s2[i])
-		return (s1[i] - s2[i]);
-	else
-		return (0);
+	return (NULL);
 }
