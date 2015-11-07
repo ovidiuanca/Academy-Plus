@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/22 21:23:08 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/25 03:39:58 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/07 19:00:47 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void	ft_putnbr(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
 void	ft_putendl(char const *s);
+char	*ft_itoa(int n);
 
 #endif
