@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/23 18:33:14 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/23 21:14:54 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/13 15:54:03 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@ char	*ft_strncpy(char *dst, const char *src, size_t n)
 	size_t i;
 
 	i = 0;
-	while (i < n)
+	while (i < n && src[i])
 	{
 		dst[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dst[i] = '\0';
 		i++;
 	}
 	return (dst);

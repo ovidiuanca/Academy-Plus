@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/23 20:22:03 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/23 20:28:14 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/13 16:00:44 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	char	*copy;
 
-	copy = ft_strdup(s);
 	i = 0;
-	while (copy[i])
+	while (s[i])
 		i++;
 	while (i >= 0)
 	{
-		if (c == copy[i])
-			return (copy + i);
+		if ((char)c == *(unsigned char*)(s + i))
+			return ((char*)(s + i));
 		i--;
 	}
 	return (NULL);

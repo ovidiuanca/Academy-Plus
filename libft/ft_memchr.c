@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/25 01:15:40 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/25 01:58:35 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/13 15:24:32 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	copy = (unsigned char*)s;
 	while (i < n)
 	{
-		if (copy[i] == c)
+		if (copy[i] == (unsigned char)c)
 			return (copy + i);
 		i++;
 	}
