@@ -6,10 +6,10 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/25 02:11:28 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/07 18:41:19 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/13 11:48:21 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "libft.h"
 
 void	ft_memdel(void **ap)
@@ -24,5 +24,5 @@ int		main(void)
 	ft_memdel(zama)l
 	return (0);
 }
-
+*/
 //UNDONE

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 12:20:19 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/13 12:25:08 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/13 11:53:12 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/13 11:58:24 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t src_len;
-	size_t dest_len;
-
-	dest_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (dest_len + src_len >= size) 
-		return (dest_len + src_len);
-	ft_memcpy(dst + dest_len, src, src_len + 1);
-	return (dest_len + src_len);
+	size_t i;
+	
+	i = 0;
+	while (s1[i] && s2[i] && (i < n))
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		else
+			return (0);
+		i++;
+	}
+	if (i == n)
+		return (0);
+	else
+		return (s1[i] - s2[i]);
 }
