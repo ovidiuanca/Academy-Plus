@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/23 21:17:00 by ocota             #+#    #+#             */
-/*   Updated: 2015/10/23 21:51:29 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/13 16:51:45 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,20 @@
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int		j;
-	int		k;
-	int		ok;
-	size_t	i;
-	char	*copy;
+	size_t i;
+	size_t j;
 
-	copy = ft_strdup(s1);
 	i = 0;
-
-	while (i < n)
+	j = 0;
+	if (!s2)
+		return ((char*)s1);
+	while (s1[i])
 	{
-		j = 0;
-		k = i;
-		ok = 1;
-		while (s2[j] && ok)
-		{
-			if (copy[k] == s2[j])
-				ok = 0;
-			k++;
+		while (s2[j] == s1[i + j] && s2[j] && (i + j) < n)
 			j++;
-		}
-		if (ok)
-			return (copy + i);
+		if (s2[j] == '\0')
+			return ((char*)(s1 + i));
+		j = 0;
 		i++;
 	}
 	return (NULL);
