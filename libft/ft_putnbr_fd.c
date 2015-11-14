@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 17:09:59 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:33:18 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 02:00:11 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 02:32:32 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	int i;
-	
-	i = 0;
-	while (s[i])
-		s[i++] = '\0';
-	s[i] = '\0';
+	long copy;
+
+	copy = n;
+	if (copy == 0)
+	{
+		ft_putchar_fd('0', fd);
+		return;
+	}
+	if (copy < 0)
+	{
+		ft_putchar_fd('-', fd);
+		copy *= -1;
+	}
+	if (copy > 9)
+		ft_putnbr_fd(copy / 10, fd);
+	ft_putchar_fd(copy % 10 + '0', fd);
 }

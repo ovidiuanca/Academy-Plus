@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 17:09:59 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:33:18 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 00:23:01 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 02:14:53 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int i;
-	
+	char	*result;
+	int		i;
+	int		j;
+
+	if (!(result = (char*)malloc(sizeof(s1) + sizeof(s2) + 1)))
+		return (NULL);
 	i = 0;
-	while (s[i])
-		s[i++] = '\0';
-	s[i] = '\0';
+	j = 0;
+	while (s1[i])
+		result[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		result[i++] = s2[j++];
+	result[i] = '\0';
+	return (result);
 }

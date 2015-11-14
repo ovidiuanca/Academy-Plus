@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 17:09:59 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:33:18 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/13 23:27:14 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 02:47:05 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int i;
-	
+	size_t	i;
+
 	i = 0;
-	while (s[i])
-		s[i++] = '\0';
-	s[i] = '\0';
+	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+	}
+	if (i == n)
+		return (1);
+	else if (s1[i] == s2[i])
+		return (1);
+	return (0);
 }

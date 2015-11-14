@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 17:09:59 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:33:18 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 03:30:26 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 03:36:01 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	int i;
-	
-	i = 0;
-	while (s[i])
-		s[i++] = '\0';
-	s[i] = '\0';
+	del(&((*alst)->content), (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

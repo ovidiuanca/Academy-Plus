@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 17:09:59 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:33:18 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 03:35:13 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 03:37:06 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+void	ft_lstdel(t_list **alst, void (*f)(void *, size_t))
 {
-	int i;
-	
-	i = 0;
-	while (s[i])
-		s[i++] = '\0';
-	s[i] = '\0';
+	if ((*alst)->next)
+		ft_lstdel(&((*alst)->next), f);
+	(*f)(&((*alst)->content), (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

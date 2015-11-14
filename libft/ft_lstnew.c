@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/25 03:18:23 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:30:56 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 03:17:57 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 03:49:53 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	long copy;
+	t_list	*new_list;
 
-	copy = n;
-	if (copy == 0)
+	if (!(new_list = (t_list*)malloc(sizeof(new_list) * content_size)))
+		return (NULL);
+	if (content)
 	{
-		ft_putchar('0');
-		return;
+		new_list->content = (void*)content;
+		new_list->content_size = content_size;
+		new_list->next = NULL;
 	}
-	if (copy < 0)
+	else
 	{
-		ft_putchar('-');
-		copy *= -1;
+		new_list->content = NULL;
+		new_list->content_size = 0;
+		new_list->next = NULL;
 	}
-	if (copy > 9)
-		ft_putnbr(copy / 10);
-	ft_putchar(copy % 10 + '0');
+	return (new_list);
 }

@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 17:09:59 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:33:18 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 03:41:29 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 03:46:10 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int i;
-	
-	i = 0;
-	while (s[i])
-		s[i++] = '\0';
-	s[i] = '\0';
+	t_list	*new_list;
+	t_list	*tmp;
+
+	tmp = f(lst);
+	new_list = tmp;
+	if (!new_list)
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+		tmp->next = f(lst);
+		if (tmp->next == NULL)
+			return (NULL);
+		tmp = tmp->next;
+	}
+	return (new_list);
 }

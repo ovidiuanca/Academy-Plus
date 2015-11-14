@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/13 17:09:59 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:33:18 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/13 23:05:36 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 02:42:55 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+#include "libft.h"
+
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int i;
-	
+	char	*copy;
+	int		i;
+	int		size;
+
+	size = ft_strlen(s);
+	if (!(copy = (char*)malloc(sizeof(*s) * size + 1)))
+		return (NULL);
 	i = 0;
 	while (s[i])
-		s[i++] = '\0';
-	s[i] = '\0';
+	{
+		copy[i] = (*f)(s[i]);
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
 }
