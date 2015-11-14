@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/14 00:29:27 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:16:54 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/14 05:15:46 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strtrim(char const *s)
 {
 	char	*result;
-	int 	i;
-	int 	j;
+	int		i;
+	int		j;
 
 	if (!(result = (char*)malloc(sizeof(s) + 1)))
 		return (NULL);

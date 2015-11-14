@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/22 21:23:08 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 03:46:45 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/14 05:21:22 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,14 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+char				*ft_todecimal(char *number, int base);
+char				*ft_decimalto(char *number, int result_base);
+char				*ft_convertfromto(char *number, int base, int result_base);
+char				*ft_strrev(char *str);
+int					ft_chartoint(char c);
+int					ft_power(int base, int exponent);
+char				ft_rest(int rest);
+char				*ft_add_digit(char *src, char digit);
 
 #endif

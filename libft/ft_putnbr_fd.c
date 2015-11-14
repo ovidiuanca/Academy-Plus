@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/14 02:00:11 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 02:32:32 by ocota            ###   ########.fr       */
+/*   Updated: 2015/11/14 05:19:04 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (copy == 0)
 	{
 		ft_putchar_fd('0', fd);
-		return;
+		return ;
 	}
 	if (copy < 0)
 	{

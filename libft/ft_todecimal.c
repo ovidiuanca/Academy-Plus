@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   ft_todecimal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 14:41:07 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 04:25:37 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 03:59:47 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 04:56:45 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_todecimal(char *number, int base)
 {
-	long	result;
-	int		res;
-	int		sign;
-	int		i;
+	int i;
+	int digit;
+	int decimal;
 
+	decimal = 0;
 	i = 0;
-	result = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r' \
-			|| str[i] == '\v' || str[i] == '\f')
+	while (number[i + 1])
 		i++;
-	if (str[i] == '-')
+	while (i >= 0)
 	{
-		sign = -1;
-		i++;
+		digit = ft_chartoint(number[i]);
+		decimal = decimal + (digit * ft_power(base, ft_strlen(number) - i - 1));
+		i--;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i])
-		if (str[i] >= '0' && str[i] <= '9')
-			result = result * 10 + (str[i++] - 48);
-		else
-			return (result);
-	res = result * sign;
-	return (res);
+	number = ft_itoa(decimal);
+	return (number);
 }

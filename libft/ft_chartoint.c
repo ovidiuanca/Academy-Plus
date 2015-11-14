@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_chartoint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 17:40:48 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 05:16:43 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 04:44:51 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 04:46:09 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int		ft_chartoint(char c)
 {
-	size_t lenght;
-
-	lenght = 0;
-	while (s[lenght])
-		lenght++;
-	return (lenght);
+	if (c == 'A' || c == 'a')
+		return (10);
+	else if (c == 'B' || c == 'b')
+		return (11);
+	else if (c == 'C' || c == 'c')
+		return (12);
+	else if (c == 'D' || c == 'd')
+		return (13);
+	else if (c == 'E' || c == 'e')
+		return (14);
+	else if (c == 'F' || c == 'f')
+		return (15);
+	else
+		return (c - 48);
 }

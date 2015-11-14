@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 14:41:07 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 04:25:37 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 04:17:55 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 04:20:02 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+char	*ft_strrev(char *str)
 {
-	long	result;
-	int		res;
-	int		sign;
-	int		i;
+	int i;
+	int n;
+	int c;
 
 	i = 0;
-	result = 0;
-	sign = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r' \
-			|| str[i] == '\v' || str[i] == '\f')
-		i++;
-	if (str[i] == '-')
+	n = ft_strlen(str) - 1;
+	while (i < n)
 	{
-		sign = -1;
+		c = str[i];
+		str[i] = str[n];
+		str[n] = c;
 		i++;
+		n--;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i])
-		if (str[i] >= '0' && str[i] <= '9')
-			result = result * 10 + (str[i++] - 48);
-		else
-			return (result);
-	res = result * sign;
-	return (res);
+	return (str);
 }

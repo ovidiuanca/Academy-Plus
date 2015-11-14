@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_decimalto.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/23 17:40:48 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/14 05:16:43 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 04:04:24 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 05:21:06 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_decimalto(char *number, int result_base)
 {
-	size_t lenght;
+	int		decimal_integer;
+	int		rest;
+	char	*result;
+	char	hex_char;
 
-	lenght = 0;
-	while (s[lenght])
-		lenght++;
-	return (lenght);
+	result = (char*)malloc(sizeof(char) * 1000);
+	decimal_integer = ft_atoi(number);
+	while (decimal_integer)
+	{
+		rest = decimal_integer % result_base;
+		hex_char = ft_rest(rest);
+		result = ft_add_digit(result, hex_char);
+		decimal_integer /= result_base;
+	}
+	return (result);
 }

@@ -6,7 +6,7 @@
 #    By: ocota <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/13 11:37:21 by ocota             #+#    #+#              #
-#    Updated: 2015/11/14 03:53:56 by ocota            ###   ########.fr        #
+#    Updated: 2015/11/14 05:02:44 by ocota            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRCS = ft_lstiter.c ft_putendl.c ft_strequ.c ft_strnstr.c ft_lstmap.c \
 	   ft_strncmp.c ft_lstadd.c ft_memset.c ft_strcpy.c ft_strncpy.c \
 	   ft_lstdel.c ft_putchar.c ft_strdel.c ft_strnequ.c ft_lstdelone.c \
 	   ft_putchar_fd.c ft_strdup.c ft_strnew.c \
+	   ft_todecimal.c ft_decimalto.c ft_convertfromto.c \
+	   ft_chartoint.c ft_strrev.c ft_power.c ft_rest.c ft_add_digit.c \
 
 OBJ = $(SRCS:.c=.o)
 
