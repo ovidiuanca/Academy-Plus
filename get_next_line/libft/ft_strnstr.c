@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/23 21:17:00 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/13 16:51:45 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+{
+	size_t i;
+	size_t j;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	i = 0;
+	j = 0;
+	if (!s2)
+		return ((char*)s1);
+	while (s1[i])
+	{
+		while (s2[j] == s1[i + j] && s2[j] && (i + j) < n)
+			j++;
+		if (s2[j] == '\0')
+			return ((char*)(s1 + i));
+		j = 0;
+		i++;
+	}
+	return (NULL);
+}

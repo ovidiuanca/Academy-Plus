@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/13 23:10:40 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 02:44:24 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char			*copy;
+	int				i;
+	unsigned int	size;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	size = ft_strlen(s);
+	if (!(copy = (char*)malloc(sizeof(*s) * size + 1)))
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		copy[i] = (*f)(i, s[i]);
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
+}

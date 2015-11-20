@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: vdruta <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/24 16:42:55 by vdruta            #+#    #+#             */
+/*   Updated: 2015/11/20 18:38:49 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*dst;
+	size_t	i;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	if (!(dst = (char*)malloc(sizeof(*dst) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		dst[i] = s[start + i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}

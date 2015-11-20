@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 03:41:29 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 03:46:10 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list	*new_list;
+	t_list	*tmp;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	tmp = f(lst);
+	new_list = tmp;
+	if (!new_list)
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+		tmp->next = f(lst);
+		if (tmp->next == NULL)
+			return (NULL);
+		tmp = tmp->next;
+	}
+	return (new_list);
+}

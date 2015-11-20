@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_decimalto.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 04:04:24 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 05:21:06 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+char	*ft_decimalto(char *number, int result_base)
+{
+	int		decimal_integer;
+	int		rest;
+	char	*result;
+	char	hex_char;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	result = (char*)malloc(sizeof(char) * 1000);
+	decimal_integer = ft_atoi(number);
+	while (decimal_integer)
+	{
+		rest = decimal_integer % result_base;
+		hex_char = ft_rest(rest);
+		result = ft_add_digit(result, hex_char);
+		decimal_integer /= result_base;
+	}
+	return (result);
+}

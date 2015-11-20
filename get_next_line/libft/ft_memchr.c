@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/25 01:15:40 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/13 15:24:32 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*copy;
+	size_t			i;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	i = 0;
+	copy = (unsigned char*)s;
+	while (i < n)
+	{
+		if (copy[i] == (unsigned char)c)
+			return (copy + i);
+		i++;
+	}
+	return (NULL);
+}

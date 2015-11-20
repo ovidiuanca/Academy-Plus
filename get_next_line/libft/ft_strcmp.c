@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/23 21:58:14 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/13 15:44:44 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+int		ft_strcmp(const char *s1, const char *s2)
+{
+	int i;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (*(unsigned char*)(s1 + i) != *(unsigned char*)(s2 + i))
+			return (*(unsigned char*)(s1 + i) - *(unsigned char*)(s2 + i));
+		i++;
+	}
+	if (*(unsigned char*)(s1 + i) != *(unsigned char*)(s2 + i))
+		return (*(unsigned char*)(s1 + i) - *(unsigned char*)(s2 + i));
+	else
+		return (0);
+}

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_add_digit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 04:52:06 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 05:15:02 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+char	*ft_add_digit(char *src, char digit)
+{
+	char	*result;
+	int		i;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	result = (char*)malloc(sizeof(*src) * ft_strlen(src) + 2);
+	i = 0;
+	result[0] = digit;
+	while (src[i])
+	{
+		result[i + 1] = src[i];
+		i++;
+	}
+	return (result);
+}

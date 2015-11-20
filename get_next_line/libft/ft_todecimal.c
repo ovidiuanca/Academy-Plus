@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_todecimal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 10:29:31 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/20 18:28:45 by ocota            ###   ########.fr       */
+/*   Created: 2015/11/14 03:59:47 by ocota             #+#    #+#             */
+/*   Updated: 2015/11/14 04:56:45 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-
-# define __GET_NEXT_LINE_H
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include "libft.h"
-#include <string.h>
 
-int		get_next_line(int const fd, char **line);
+char	*ft_todecimal(char *number, int base)
+{
+	int i;
+	int digit;
+	int decimal;
 
-#define BUFF_SIZE 10000000
-
-#endif
+	decimal = 0;
+	i = 0;
+	while (number[i + 1])
+		i++;
+	while (i >= 0)
+	{
+		digit = ft_chartoint(number[i]);
+		decimal = decimal + (digit * ft_power(base, ft_strlen(number) - i - 1));
+		i--;
+	}
+	number = ft_itoa(decimal);
+	return (number);
+}
