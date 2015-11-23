@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
 void	ft_putchar(char c)
 {
@@ -51,71 +51,35 @@ char*	ft_itoa_base(int val, int base)
 		buf[i] = '-';
 		--i;
 	}
-	return &buf[i + 1];
+	return (&buf[i + 1]);
 }
 
-int		format_and_print(const char *pcFmt, va_list lList)
+int		format_and_print(const char *format, va_list lList)
 {
-	//Holds the number of characters printed, 0 on error
-	int nChars = 0;
+	int n_chars = 0;
 
-	while(*pcFmt != '\0')
+	while(*format != '\0')
 	{
-		if(*pcFmt == '%')
+		if(*format == '%')
 		{
-			pcFmt++;
-			/*
-			int		iTemp = 0;
-			char	cTemp = 0;
-			char	*acTemp;
-			char	*pcTemp = NULL;
-
-			acTemp = (char*)malloc(sizeof(acTemp) * 1000);*/
-			if (*pcFmt == 'd')
-				case_d(lList, &nChars);
-			/*	
-			switch (*pcFmt)
-			{
-				case 'd':
-					iTemp = va_arg(lList, int);
-					acTemp = ft_itoa_base(iTemp, 10); 
-					int i;
-					for(i = 0; i < strlen(acTemp); i++)
-					{
-						ft_putchar(acTemp[i]);
-						nChars++;
-					}
-					break;
-				case 's':
-					pcTemp = va_arg(lList, char*);
-
-					while(*pcTemp != '\0')
-					{
-						ft_putchar(*pcTemp);
-						nChars++;
-						pcTemp++;
-					}
-					break;
-				case 'c':
-					cTemp = va_arg(lList, int);  
-					ft_putchar(cTemp);
-					nChars++;
-					break;
-				default:
-					break;
-			}
-			*/
-			pcFmt++;
+			format++;
+			if (*format == 'd')
+				case_d(lList, &n_chars);
+			else if (*format == 's')
+				case_s(lList, &n_chars);
+			else if (*format == 'c')
+				case_c(lList, &n_chars);
+			else if (*format == '
+			format++;
 		}
 		else 
-			// print the char to console
 		{
-			ft_putchar(*pcFmt);
-			pcFmt++;
-			nChars++;
+			ft_putchar(*format);
+			format++;
+			n_chars++;
 		}
 	}
-	return nChars;
+	return (n_chars);
 }
 
 int		ft_printf(const char *format, ...)
@@ -127,5 +91,5 @@ int		ft_printf(const char *format, ...)
 	va_list lList;
 	
 	va_start(lList, format);
-	return(format_and_print(format, lList));
+	return (format_and_print(format, lList));
 }
