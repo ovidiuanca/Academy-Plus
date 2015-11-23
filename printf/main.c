@@ -10,10 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.c"
+#include "header.h"
 
 int		main(void)
 {
-	ft_printf("zama de gunoi");
+	char a[20] = "ciorba de picioci";
+	int b = -2.500;
+
+	ft_printf("zama de cartofi: %d", b);
+	printf("\n");
+	printf("zama de cartofi: %d", b);
+	printf("\n");
 	return (0);
 }

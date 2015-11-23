@@ -10,33 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "header.h"
 
-#define PRINTCHAR(c) putchar(c)
-#define MAXLEN 256
-
-
-
-//Write a printf function which simulates printf() in C.
-
-char*	itoa(int val, int base){
-
-	static char buf[32] = {0};
-
-	int i = 30;
-
-	for(; val && i ; --i, val /= base)
-
-		buf[i] = "0123456789abcdef"[val % base];
-
-	return &buf[i+1];
-
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-int		formatAndPrintString(char *pcFmt, va_list lList)
+int		nr_digits(int number)
+{
+	int digits;
+
+	digits = 0;
+	while (number)
+	{
+		digits++;
+		number /= 10;
+	}
+}
+
+char*	ft_itoa_base(int val, int base)
+{
+	static char buf[32] = {0};
+	int 		i = 30;
+	int 		sign = 1;
+
+	if (val < 0)
+	{
+		sign = -1;
+		val = val * sign;
+	}
+	while (val && i)
+	{
+		buf[i] = "0123456789abcdef"[val % base];
+		--i;
+		val /= base;
+	}
+	if (sign < 0)
+	{
+		buf[i] = '-';
+		--i;
+	}
+	return &buf[i + 1];
+}
+
+int		format_and_print(const char *pcFmt, va_list lList)
 {
 	//Holds the number of characters printed, 0 on error
 	int nChars = 0;
@@ -46,19 +64,26 @@ int		formatAndPrintString(char *pcFmt, va_list lList)
 		if(*pcFmt == '%')
 		{
 			pcFmt++;
-			int iTemp = 0;
-			char acTemp[MAXLEN] = ""; 
-			char *pcTemp = NULL, cTemp = 0;
+			/*
+			int		iTemp = 0;
+			char	cTemp = 0;
+			char	*acTemp;
+			char	*pcTemp = NULL;
 
+			acTemp = (char*)malloc(sizeof(acTemp) * 1000);*/
+			if (*pcFmt == 'd')
+				case_d(lList, &nChars);
+			/*	
 			switch (*pcFmt)
 			{
 				case 'd':
 					iTemp = va_arg(lList, int);
-					acTemp = itoa(iTemp, 10); 
-
-					for(int i = 0; i < strlen(acTemp); i++)
+					acTemp = ft_itoa_base(iTemp, 10); 
+					int i;
+					for(i = 0; i < strlen(acTemp); i++)
 					{
-						PRINTCHAR(acTemp[i]); nChars++;
+						ft_putchar(acTemp[i]);
+						nChars++;
 					}
 					break;
 				case 's':
@@ -66,39 +91,41 @@ int		formatAndPrintString(char *pcFmt, va_list lList)
 
 					while(*pcTemp != '\0')
 					{
-						PRINTCHAR(*pcTemp); nChars++;
+						ft_putchar(*pcTemp);
+						nChars++;
 						pcTemp++;
 					}
 					break;
 				case 'c':
 					cTemp = va_arg(lList, int);  
-					PRINTCHAR(cTemp);
+					ft_putchar(cTemp);
 					nChars++;
 					break;
 				default:
 					break;
 			}
+			*/
 			pcFmt++;
 		}
 		else 
 			// print the char to console
 		{
-			PRINTCHAR(*pcFmt);
-			pcFmt++; nChars++;
+			ft_putchar(*pcFmt);
+			pcFmt++;
+			nChars++;
 		}
 	}
 	return nChars;
 }
 
-int		ft_printf(const char *restrict format, ...)
+int		ft_printf(const char *format, ...)
 {
 	if(!format)
 	{
 		return 0;
 	}
-
 	va_list lList;
+	
 	va_start(lList, format);
-
-	return(formatAndPrintString(format, lList));
+	return(format_and_print(format, lList));
 }

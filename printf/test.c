@@ -27,15 +27,14 @@ void	printThem(int arg1, ...)
 
 int		main(void)
 {
-	int a = 10;
-	int b = 11;
-	int c = 12;
-	int d = 13;
-	int e = 14;
-	int f = 15;
-	int g = -1;
+	int 	a = 10;
+	char 	b = 'a';
+	int 	c = 12;
+	char	d = 'h';
+	int 	e = 14;
+	int 	f = 15;
+	int 	g = -1;
 
 	printThem(a, b, c, d, e, f, g);
-	printf("");
 	return (0);
 }
