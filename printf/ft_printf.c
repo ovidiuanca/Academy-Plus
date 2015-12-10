@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/20 23:49:45 by ocota             #+#    #+#             */
-/*   Updated: 2015/11/21 02:15:04 by ocota            ###   ########.fr       */
+/*   Updated: 2015/12/10 09:43:04 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		nr_digits(int number)
 		digits++;
 		number /= 10;
 	}
+	return (digits);
 }
 
 char*	ft_itoa_base(int val, int base)
@@ -69,7 +70,6 @@ int		format_and_print(const char *format, va_list lList)
 				case_s(lList, &n_chars);
 			else if (*format == 'c')
 				case_c(lList, &n_chars);
-			else if (*format == '
 			format++;
 		}
 		else 
