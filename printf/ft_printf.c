@@ -6,7 +6,7 @@
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/20 23:49:45 by ocota             #+#    #+#             */
-/*   Updated: 2015/12/10 09:43:04 by ocota            ###   ########.fr       */
+/*   Updated: 2015/12/10 13:18:31 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int		nr_digits(int number)
 	return (digits);
 }
 
-char*	ft_itoa_base(int val, int base)
+char*	ft_itoa_base(long val, int base)
 {
 	static char buf[32] = {0};
-	int 		i = 30;
-	int 		sign = 1;
+	long		i = 30;
+	long 		sign = 1;
 
 	if (val < 0)
 	{
@@ -70,6 +70,10 @@ int		format_and_print(const char *format, va_list lList)
 				case_s(lList, &n_chars);
 			else if (*format == 'c')
 				case_c(lList, &n_chars);
+			else if (*format == 'f')
+				case_f(lList, &n_chars);
+			else if (*format == 'D')
+				case_D(lList, &n_chars);
 			format++;
 		}
 		else 

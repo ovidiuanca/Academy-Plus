@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/21 00:49:08 by ocota             #+#    #+#             */
-/*   Updated: 2015/12/10 13:19:08 by ocota            ###   ########.fr       */
+/*   Created: 2015/10/25 03:18:23 by ocota             #+#    #+#             */
+/*   Updated: 2015/12/10 12:59:08 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+void	ft_putnbr(long n)
 {
-	char a[20] = "ciorba de picioci";
-	int b = 42;
-	long llong = 1234567890123456;
-	char c = 'Z';
-	float zama = 123.4567;
+	long copy;
 
-	ft_printf("zama de cartofi: %d %s %c %f %D\n", b, a, c, zama, llong);
-	printf("\n");
-	printf("zama de cartofi: %d %s %c %f %ld\n", b, a, c, zama, llong);
-	printf("\n");
-	return (0);
+	copy = n;
+	if (copy == 0)
+	{
+		ft_putchar('0');
+		return ;
+	}
+	if (copy < 0)
+	{
+		ft_putchar('-');
+		copy *= -1;
+	}
+	if (copy > 9)
+		ft_putnbr(copy / 10);
+	ft_putchar(copy % 10 + '0');
 }

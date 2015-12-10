@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cases.c                                            :+:      :+:    :+:   */
+/*   dscf.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 09:25:47 by ocota             #+#    #+#             */
-/*   Updated: 2015/12/10 09:39:34 by ocota            ###   ########.fr       */
+/*   Created: 2015/12/10 12:22:25 by ocota             #+#    #+#             */
+/*   Updated: 2015/12/10 13:16:19 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	case_d(va_list lList, int *n_chars)
 {
-	int		temp_int;
+	long	temp_int;
 	char	*temp_string;
 	size_t	i;
-	
-	temp_int = va_arg(lList, int);
+
+	temp_int = va_arg(lList, long);
 	temp_string = ft_itoa_base(temp_int, 10);
 	i = 0;
 	while (i < strlen(temp_string))
 	{
 		ft_putchar(temp_string[i]);
-		*n_chars = *n_chars + 1;
+		(*n_chars)++;
 		i++;
 	}
 }
@@ -37,7 +37,7 @@ void	case_s(va_list lList, int *n_chars)
 	while (*temp_string)
 	{
 		ft_putchar(*temp_string);
-		*n_chars = *n_chars + 1;
+		(*n_chars)++;
 		temp_string++;
 	}
 }
@@ -49,4 +49,27 @@ void	case_c(va_list lList, int *n_chars)
 	temp_char = va_arg(lList, int);
 	ft_putchar(temp_char);
 	*n_chars = *n_chars + 1;
+}
+
+void	case_f(va_list lList, int *n_chars)
+{
+	float	temp_float;
+	char	*string;
+	int		int_part;
+	char	*str_int_part;
+	int		float_part;
+	char	*str_float_part;
+
+	temp_float = va_arg(lList, double);
+	int_part = ft_int_part(temp_float);
+	*n_chars = *n_chars + nr_digits(int_part);
+	temp_float = temp_float - int_part;
+	float_part = ft_float_part(temp_float);
+	*n_chars = *n_chars + nr_digits(float_part);
+	str_int_part = ft_itoa_base(int_part, 10);
+	str_float_part = ft_itoa_base(float_part, 10);
+	string = ft_strjoin(str_int_part, ".");
+	string = ft_strjoin(string, str_float_part);
+	(*n_chars)++;
+	ft_putstr(string);
 }
