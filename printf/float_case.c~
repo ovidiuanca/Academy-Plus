@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   float_case.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/21 00:49:08 by ocota             #+#    #+#             */
-/*   Updated: 2015/12/10 13:19:08 by ocota            ###   ########.fr       */
+/*   Created: 2015/12/10 10:35:46 by ocota             #+#    #+#             */
+/*   Updated: 2015/12/10 11:04:31 by ocota            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+int		ft_int_part(float number)
 {
-	char a[20] = "ciorba de picioci";
-	int b = 42;
-	long llong = 1234567890123456;
-	char c = 'Z';
-	float zama = 1.4567;
+	int result;
 
-	ft_printf("zama de cartofi: %d %s %c %f %D\n", b, a, c, zama, llong);
-	printf("\n");
-	printf("zama de cartofi: %d %s %c %f %ld\n", b, a, c, zama, llong);
-	printf("\n");
-	return (0);
+	result = (int)number;
+	return (result);
+}
+
+int		ft_float_part(float number)
+{
+	int i;
+
+	i = 0;
+	while(i < 6)
+	{
+		number *= 10;
+		i++;
+	}
+	return (number);
 }
