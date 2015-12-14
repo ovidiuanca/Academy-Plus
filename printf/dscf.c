@@ -14,11 +14,11 @@
 
 void	case_d(va_list lList, int *n_chars)
 {
-	long	temp_int;
+	int		temp_int;
 	char	*temp_string;
 	size_t	i;
 
-	temp_int = va_arg(lList, long);
+	temp_int = va_arg(lList, int);
 	temp_string = ft_itoa_base(temp_int, 10);
 	i = 0;
 	while (i < strlen(temp_string))

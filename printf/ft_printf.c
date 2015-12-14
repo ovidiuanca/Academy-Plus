@@ -12,11 +12,6 @@
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 int		nr_digits(int number)
 {
 	int digits;
@@ -28,31 +23,6 @@ int		nr_digits(int number)
 		number /= 10;
 	}
 	return (digits);
-}
-
-char*	ft_itoa_base(long val, int base)
-{
-	static char buf[32] = {0};
-	long		i = 30;
-	long 		sign = 1;
-
-	if (val < 0)
-	{
-		sign = -1;
-		val = val * sign;
-	}
-	while (val && i)
-	{
-		buf[i] = "0123456789abcdef"[val % base];
-		--i;
-		val /= base;
-	}
-	if (sign < 0)
-	{
-		buf[i] = '-';
-		--i;
-	}
-	return (&buf[i + 1]);
 }
 
 int		format_and_print(const char *format, va_list lList)

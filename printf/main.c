@@ -18,11 +18,11 @@ int		main(void)
 	int b = 42;
 	long llong = 1234567890123456;
 	char c = 'Z';
-	float zama = 123.4567;
+	float zama = 1.4567;
 
-	ft_printf("zama de cartofi: %d %s %c %f %D\n", b, a, c, zama, llong);
+	ft_printf("zama de cartofi: %d %s %c %f %D", b, a, c, zama, llong);
 	printf("\n");
-	printf("zama de cartofi: %d %s %c %f %ld\n", b, a, c, zama, llong);
+	printf("zama de cartofi: %d %s %c %f %ld", b, a, c, zama, llong);
 	printf("\n");
 	return (0);
 }

@@ -23,7 +23,8 @@
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putnbr(long number);
-char	*ft_itoa_base(long val, int base);
+char	*ft_itoa_base(int val, int base);
+char	*ft_ltoa_base(long val, int base);
 void	case_d(va_list lList, int *nChars);
 void	case_s(va_list lList, int *nChars);
 void	case_c(va_list lList, int *nChars);
