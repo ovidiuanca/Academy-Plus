@@ -25,6 +25,15 @@ int		nr_digits(int number)
 	return (digits);
 }
 
+void    percent(char **format, *n_chars, va_list lList);
+{
+    char    *descriptor;
+    int     lenght;
+
+    if (is_descriptor(*format))
+        lenght = calc_desc_len(*format);
+}
+
 int		format_and_print(const char *format, va_list lList)
 {
 	int n_chars = 0;
@@ -32,20 +41,7 @@ int		format_and_print(const char *format, va_list lList)
 	while(*format != '\0')
 	{
 		if(*format == '%')
-		{
-			format++;
-			if (*format == 'd')
-				case_d(lList, &n_chars);
-			else if (*format == 's')
-				case_s(lList, &n_chars);
-			else if (*format == 'c')
-				case_c(lList, &n_chars);
-			else if (*format == 'f')
-				case_f(lList, &n_chars);
-			else if (*format == 'D')
-				case_D(lList, &n_chars);
-			format++;
-		}
+            percent(&format, &n_chars, lList);
 		else
 		{
 			ft_putchar(*format);
@@ -59,9 +55,7 @@ int		format_and_print(const char *format, va_list lList)
 int		ft_printf(const char *format, ...)
 {
 	if(!format)
-	{
 		return 0;
-	}
 	va_list lList;
 	
 	va_start(lList, format);
