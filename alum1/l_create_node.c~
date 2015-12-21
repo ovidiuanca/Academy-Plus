@@ -1,0 +1,10 @@
+#include "header.h"
+
+t_board *l_init(void)
+{
+    t_board my_board;
+    my_board = malloc(sizeof(my_board*));
+    my_board->n = 0;
+    my_board->next = NULL;
+    return (my_board);
+}
