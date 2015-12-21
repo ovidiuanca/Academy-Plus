@@ -21,7 +21,6 @@ void	start_game(int *array, int *number)
 	int	cpu_won;
 
 	print_new_lines();
-	//print_welcome();
 	user_won = 0;
 	cpu_won = 0;
 	while (!user_won && !cpu_won)

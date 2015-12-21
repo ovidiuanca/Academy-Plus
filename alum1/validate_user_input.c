@@ -17,7 +17,7 @@ int		validate_user_input(char *str, int *array, int *number)
 		return (1);
 	else
 	{
-		ft_putstr("Error input!\n");
+		ft_putstr("Error input! Try again!\n");
 		return (0);
 	}
 }

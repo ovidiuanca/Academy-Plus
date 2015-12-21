@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <string.h>
 
 typedef struct      s_board
 {
@@ -37,5 +38,8 @@ void		cpu_easy(int *array, int *number);
 void		print_new_lines(void);
 void		print_user_won(void);
 void		print_cpu_won(void);
+t_board		*read_console(int *number);
+int			validate_decision(char *decision);
+int			ft_strcmp(char *str1, char *str2);
 
 #endif

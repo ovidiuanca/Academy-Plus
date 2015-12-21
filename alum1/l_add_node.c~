@@ -8,5 +8,4 @@ void    l_add_node(t_board *my_board, int elem)
 	new_node->n = elem;
 	new_node->next = NULL;
 	my_board->next = new_node;
-	new_node->prev = my_board;
 }

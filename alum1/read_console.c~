@@ -1,17 +1,17 @@
 #include "header.h"
 
-t_board		*read_file(int *number)
+t_board		*read_console(int *number)
 {
-	int		fd;
 	t_board	*my_board;
-	t_board	*begin;
+	t_board *begin;
 	char	*line;
+	int		valid;
 	int		line_as_int;
 
 	my_board = l_init_list();
 	begin = my_board;
-	fd = open("file.txt", O_RDONLY);
-	while (get_next_line(fd, &line) > 0)
+	ft_putstr("Insert the map:\n");
+	while (get_next_line(0, &line) > 0  && ft_strcmp(line, "") != 0)
 	{
 		if (validate_line(line))
 		{
@@ -21,10 +21,7 @@ t_board		*read_file(int *number)
 			my_board = my_board->next;
 		}
 		else
-		{
-			write(1, "File is incorrect!", 14);
-			return (0);
-		}
+			ft_putstr("Incorrect input. Try again!\n");
 	}
 	return (begin);
 }

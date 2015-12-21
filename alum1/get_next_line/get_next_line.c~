@@ -38,6 +38,7 @@ int		get_next_line(int const fd, char **line)
 	static char *all_data = NULL;
 	char		*rest;
 	int			option;
+
 	if ((!all_data && (all_data = (char *)malloc(sizeof(*all_data))) == NULL) || !line
 			|| fd < 0 || BUFF_SIZE < 0)
 		return (-1);

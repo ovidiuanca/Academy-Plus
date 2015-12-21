@@ -1,10 +1,10 @@
 #include "header.h"
 
-void    print_board(int	*array, int *number)
+void	print_board(int	*array, int *number)
 {
-    int i;
+	int i;
 	int j;
-	
+
 	j = 0;
 	while (j < *number)
 	{

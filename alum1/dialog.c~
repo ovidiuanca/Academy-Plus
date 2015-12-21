@@ -1,0 +1,23 @@
+#include <stdlib.h>
+
+int		main(void)
+{
+	char *comm;
+	comm = strdup("say Hello. Who are you?");
+	system(comm);
+	comm = strdup("say -v Vicki My name is Vicki. Who are you, sir?");
+	system(comm);
+	comm = strdup("say I am mister Jeg. Nice to meet you Vicki.");
+	system(comm);
+	comm = strdup("say -v Vicki Nice to meet you too Jeg.");
+	system(comm);
+	comm = strdup("say Nice Tits");
+	system(comm);
+	comm = strdup("say -v Vicki Thank you, just got them");
+	system(comm);
+	comm = strdup("say Can I touch them?");
+	system(comm);
+	comm = strdup("say -v Vicki No, you pig");
+	system(comm);
+	return (0);
+}
