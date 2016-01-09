@@ -40,13 +40,13 @@ void	to_right(t_env *m, int i, int j)
 	t_point p1;
 	t_point p2;
 
-	p1.x = 100 + (30 * j);
+	p1.x = 600 + (30 * j);
 	p1.y = 100 + (30 * i);
 	p1.z = m->matrix[i][j];
-	p2.x = 100 + (30 * j);
-	p2.y = 100 + (30 * (i + 1));
-	p2.z = m->matrix[i][j];
-	//change_coords(&p1, &p2);
+	p2.x = 600 + (30 * (j + 1));
+	p2.y = 100 + (30 * i);
+	p2.z = m->matrix[i][j + 1];
+	change_coords(&p1, &p2);
 	draw_line(m, p1, p2);
 }
 
@@ -55,12 +55,12 @@ void	to_down(t_env *m, int i, int j)
 	t_point p1;
 	t_point p2;
 
-	p1.x = 100 + (30 * j);
+	p1.x = 600 + (30 * j);
 	p1.y = 100 + (30 * i);
 	p1.z = m->matrix[i][j];
-	p2.x = 100 + (30 * j);
+	p2.x = 600 + (30 * j);
 	p2.y = 100 + (30 * (i + 1));
-	p2.z = m->matrix[i][j];
-	//change_coords(&p1, &p2);
+	p2.z = m->matrix[i + 1][j];
+	change_coords(&p1, &p2);
 	draw_line(m, p1, p2);
 }
