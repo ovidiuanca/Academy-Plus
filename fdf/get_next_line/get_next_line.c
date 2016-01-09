@@ -56,10 +56,7 @@ int		get_next_line(int const fd, char **line)
 		else
 			rest = ft_strchr(all_data, '\n');
 	}
-	//write(1, "sigur", 6);
 	*line = ft_strsub(all_data, 0, ft_strlen(all_data) - ft_strlen(rest));
-	//write(1, "SUNT", 5);
 	all_data = ft_strdup(rest + 1);
-	//write(1, "AICI", 5);
 	return (1);
 }
