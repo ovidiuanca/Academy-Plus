@@ -4,6 +4,8 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 # define WHITE 0xFFFFFF
 # define RED 0xFF00FF

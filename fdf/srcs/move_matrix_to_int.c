@@ -34,5 +34,6 @@ int		**move_matrix_to_int(char **char_matrix, int cols, int rows)
 		process_line(char_matrix, i, int_matrix);
 		i++;
 	}
+	free(char_matrix);
 	return (int_matrix);
 }

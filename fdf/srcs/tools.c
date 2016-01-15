@@ -4,9 +4,9 @@
 void	change_coords(t_point *a, t_point *b)
 {
 	a->x = a->x * cos(45) - a->y * cos(45);
-	a->y = a->z + a->x * sin(45) + a->y * sin(45);
+	a->y = -a->z + a->x * sin(45) + a->y * sin(45);
 	b->x = b->x * cos(45) - b->y * cos(45);
-	b->y = b->z + b->x * sin(45) + b->y * sin(45);
+	b->y = -b->z + b->x * sin(45) + b->y * sin(45);
 }
 
 double	get_distance(t_point a, t_point b)

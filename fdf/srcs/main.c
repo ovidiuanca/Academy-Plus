@@ -1,9 +1,10 @@
 #include "mlx.h"
 #include "fdf.h"
 
-int		key_hook(t_env *m)
+int		key_hook(int codekey)
 {
-	m->cols += 0;
+	if (codekey == 53)
+		exit(0);
 	return (0);
 }
 

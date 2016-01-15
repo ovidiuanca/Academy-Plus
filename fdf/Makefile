@@ -9,7 +9,7 @@ OBJ = *.o
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -I includes/ -I get_next_line/ -I mlx/ -L mlx/ -L libft/ -lft -lmlx -framework OpenGL -framework AppKit $(SRCS)
+	gcc -g -Wall -Wextra -Werror -I includes/ -I get_next_line/ -I mlx/ -L mlx/ -L libft/ -lft -lmlx -framework OpenGL -framework AppKit $(SRCS)
 
 clean:
 	/bin/rm -f $(OBJ)
