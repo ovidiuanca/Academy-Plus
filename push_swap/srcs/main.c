@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/22 18:19:20 by ocota             #+#    #+#             */
+/*   Updated: 2016/01/23 18:11:21 by ocota            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int		verify_integer(char *string)
@@ -54,13 +66,24 @@ void	error_handling(int argc, char **argv)
 	}
 }
 
+void	some_extras(t_pretty *second)
+{
+	if (!second->next)
+		return ;
+	while (second)
+	{
+		write(1, "pa ", 3);
+		second = second->next;
+	}
+}
+
 int		main(int argc, char **argv)
 {
 	t_pretty	*first;
 	t_pretty	*second;
 	int			data;
 	int			index;
-	
+
 	error_handling(argc, argv);
 	index = 2;
 	first = new_node(ft_atoi(argv[1]));
@@ -70,7 +93,13 @@ int		main(int argc, char **argv)
 		add_node(first, data);
 		index++;
 	}
+	if (is_ordered(first))
+	{
+		ft_putstr("\n");
+		return (0);
+	}
 	fill_second(first, &second);
+	filler(second);
 	first = second;
 	ft_putstr("\n");
 	return (0);

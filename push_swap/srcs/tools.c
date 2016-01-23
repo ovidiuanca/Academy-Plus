@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/22 18:19:14 by ocota             #+#    #+#             */
+/*   Updated: 2016/01/23 18:07:45 by ocota            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rotate_left(t_pretty **first)
@@ -13,7 +25,7 @@ void	rotate_left(t_pretty **first)
 	result = copy->next;
 	(*first)->next->next = begin;
 	copy->next = NULL;
-	*first = result; 
+	*first = result;
 }
 
 int		find_min(t_pretty *list)
@@ -50,24 +62,20 @@ int		find_min_bigger(t_pretty *first, t_pretty *second)
 
 void	fill_second(t_pretty *first, t_pretty **second)
 {
-	int index;
-	int operations;
+	int ex;
 
-	operations = 0;
-	index = 0;
-	*second = new_node(find_min(first));
-	while (index < number_of(first) - 1)
+	ex = find_min(first);
+	*second = new_node(ex);
+	while (first)
 	{
-		while (first->data != find_min_bigger(first, *second))
+		while (first->data != find_min(first))
 		{
 			rotate_left(&first);
 			ft_putstr("rra ");
-			operations++;
 		}
-		add_node(*second, first->data);
+		if (first->data != ex)
+			add_node(*second, first->data);
+		pop_first(&first);
 		ft_putstr("pb ");
-		operations++;
-		index++;
 	}
-	ft_putnbr(operations);
 }

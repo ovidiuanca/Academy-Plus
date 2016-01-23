@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_operations.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ocota <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/22 18:19:07 by ocota             #+#    #+#             */
+/*   Updated: 2016/01/23 16:44:10 by ocota            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include <stdio.h>
 
 t_pretty	*new_node(int data)
 {
@@ -41,4 +52,13 @@ int			number_of(t_pretty *begin)
 		begin = begin->next;
 	}
 	return (number);
+}
+
+void	pop_first(t_pretty **begin)
+{
+	t_pretty *to_delete;
+
+	to_delete = *begin;
+	*begin = (*begin)->next;
+	free(to_delete);
 }
